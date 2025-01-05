@@ -5,55 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Typing Effect</title>
     <style>
-        /* Styling for the text and layout */
+        /* General styling for the body */
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            text-align: left; /* Align all text to the left */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #202124; /* Dark background */
+            color: #ffffff; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        #text43 {
-            font-size: 24px;
+
+        /* Wrapper to align content */
+        .wrapper {
+            text-align: left; /* Aligns content to the left */
+        }
+
+        /* Styling for the intro text */
+        .intro {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
             font-weight: bold;
-            color: #008AFC; /* Set text color */
-            white-space: pre; /* Keeps the cursor inline */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between emoji and text */
+        }
+
+        /* Styling for the subtext container */
+        .subtext-container {
+            margin-top: 10px; /* Space below "Hi, I'm DIMI." */
+            margin-left: 86px; /* Adjusted to perfectly align with "Hi" */
+            display: flex;
+            align-items: baseline; /* Aligns the text and dynamic part */
+            gap: 8px; /* Space between static and dynamic text */
+        }
+
+        .static-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            font-weight: 300;
+            color: #aaaaaa; /* Light gray */
+        }
+
+        .dynamic-container {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            font-weight: 300;
+            color: #008AFC; /* Bright blue for dynamic text */
+            width: 450px; /* Adjusted width for the longest text */
+            text-align: left; /* Ensures text alignment */
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden; /* Prevents layout shifts */
         }
     </style>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="text43">│</div> <!-- Dynamic text -->
+    <div class="wrapper">
+        <!-- Static Intro Text -->
+        <div class="intro">
+            👋 Hi, I'm DIMI.
+        </div>
+        <!-- Subtext with dynamic text -->
+        <div class="subtext-container">
+            <span class="static-text">I'm a</span>
+            <span class="dynamic-container" id="dynamic-text">│</span>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const texts = [
-                "Data Science and Gen AI Explorer",
+                "Data Science and AI Explorer",
+                "Generative AI Enthusiast",
                 "Maritime Chief Officer",
                 "Curious with logical thinking",
-                "Dynamic",
+		"Dynamic",
                 "Judgemental",
                 "Argumentative",
                 "& Game Enthusiast"
             ];
-            
+
             let currentIndex = 0;
             let charIndex = 0;
-            const textElement = document.getElementById('text43');
-            const typingSpeed = 100; // Speed of typing
-            const eraseSpeed = 10;   // Speed of erasing
-            const pauseTime = 1500;  // Time to pause at full text
-            
+            const dynamicTextElement = document.getElementById('dynamic-text');
+            const typingSpeed = 100; // Typing speed in ms
+            const eraseSpeed = 50;   // Erasing speed in ms
+            const pauseTime = 1500;  // Pause time at full text
+
             function typeText() {
                 if (charIndex < texts[currentIndex].length) {
-                    textElement.textContent = texts[currentIndex].substring(0, charIndex + 1) + "│";
+                    dynamicTextElement.textContent = texts[currentIndex].substring(0, charIndex + 1) + "│";
                     charIndex++;
                     setTimeout(typeText, typingSpeed);
                 } else {
                     setTimeout(eraseText, pauseTime);
                 }
             }
-            
+
             function eraseText() {
                 if (charIndex > 0) {
-                    textElement.textContent = texts[currentIndex].substring(0, charIndex - 1) + "│";
+                    dynamicTextElement.textContent = texts[currentIndex].substring(0, charIndex - 1) + "│";
                     charIndex--;
                     setTimeout(eraseText, eraseSpeed);
                 } else {
@@ -61,8 +117,8 @@
                     setTimeout(typeText, typingSpeed);
                 }
             }
-            
-            typeText();
+
+            typeText(); // Start the typing effect
         });
     </script>
 </body>
