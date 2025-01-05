@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Typing Effect</title>
+    <style>
+        /* Styling for the text and layout */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #text43 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008AFC; /* Set text color */
+            white-space: pre; /* Keeps the cursor inline */
+        }
+    </style>
+</head>
+<body>
+    <div id="text43">│</div> <!-- Dynamic text -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const texts = [
+                "Data Science and Gen AI Explorer",
+                "Maritime Chief Officer",
+                "Curious with logical thinking",
+                "Dynamic",
+                "Judgemental",
+                "Argumentative",
+                "& Game Enthusiast"
+            ];
+            
+            let currentIndex = 0;
+            let charIndex = 0;
+            const textElement = document.getElementById('text43'); // Replace $w selector with standard DOM
+            const typingSpeed = 100; // Speed of typing
+            const eraseSpeed = 10;   // Speed of erasing
+            const pauseTime = 1500;  // Time to pause at full text
+            
+            function typeText() {
+                if (charIndex < texts[currentIndex].length) {
+                    textElement.textContent = texts[currentIndex].substring(0, charIndex + 1) + "│";
+                    charIndex++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    setTimeout(eraseText, pauseTime);
+                }
+            }
+            
+            function eraseText() {
+                if (charIndex > 0) {
+                    textElement.textContent = texts[currentIndex].substring(0, charIndex - 1) + "│";
+                    charIndex--;
+                    setTimeout(eraseText, eraseSpeed);
+                } else {
+                    currentIndex = (currentIndex + 1) % texts.length;
+                    setTimeout(typeText, typingSpeed);
+                }
+            }
+            
+            typeText();
+        });
+    </script>
+</body>
+</html>
