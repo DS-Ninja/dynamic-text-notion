@@ -26,7 +26,7 @@
         /* Styling for the intro text */
         .intro {
             font-family: 'Montserrat', sans-serif;
-            font-size: 45px;
+            font-size: 50px;
             font-weight: bold;
             margin: 5;
             display: flex;
@@ -37,22 +37,22 @@
         /* Styling for the subtext container */
         .subtext-container {
             margin-top: 10px; /* Space below "Hi, I'm DIMI." */
-            margin-left: 69px; /* Adjusted to perfectly align with "Hi" */
+            margin-left: 87px; /* Adjusted to perfectly align with "Hi" */
             display: flex;
             align-items: baseline; /* Aligns the text and dynamic part */
-            gap: 12px; /* Space between static and dynamic text */
+            gap: 8px; /* Space between static and dynamic text */
         }
 
         .static-text {
             font-family: 'Poppins', sans-serif;
-            font-size: 15px;
+            font-size: 25px;
             font-weight: 300;
             color: #dddddd; /* #aaaaaa Light gray */
         }
 
         .dynamic-container {
             font-family: 'Poppins', sans-serif;
-            font-size: 15px;
+            font-size: 25px;
             font-weight: 300;
             color: #008AFC; /* Bright blue for dynamic text */
             width: 450px; /* Adjusted width for the longest text */
@@ -72,7 +72,7 @@
         </div>
         <!-- Subtext with dynamic text -->
         <div class="subtext-container">
-            <span class="static-text">I'm a</span>
+            <span class="static-text">I'm</span>
             <span class="dynamic-container" id="dynamic-text">│</span>
         </div>
     </div>
@@ -80,14 +80,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const texts = [
-                "Data Science Explorer",
-                "Generative AI Enthusiast",
-                "Maritime Chief Officer",
-                "Curious with logical thinking",
-		"Dynamic",
-                "Judgemental",
-                "Argumentative",
-                "Game Enthusiast"
+                "a Data Science Explorer",
+                "a Generative AI Enthusiast",
+                "a Maritime Chief Officer",
+                "a Curious with logical thinking",
+		"a Dynamic",
+                "a Judgemental",
+                "a Argumentative",
+                "a Game Enthusiast"
             ];
 
             let currentIndex = 0;
