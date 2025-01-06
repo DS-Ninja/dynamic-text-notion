@@ -8,10 +8,10 @@
         /* General styling for the body */
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 5;
+            padding: 5;
             background-color: transparent; /* Dark background 191919 */
-            color: #ffffff; /* White text color */
+            color: #dddddd; /* White text color */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +28,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 50px;
             font-weight: bold;
-            margin: 0;
+            margin: 5;
             display: flex;
             align-items: center;
             gap: 10px; /* Space between emoji and text */
@@ -37,7 +37,7 @@
         /* Styling for the subtext container */
         .subtext-container {
             margin-top: 10px; /* Space below "Hi, I'm DIMI." */
-            margin-left: 86px; /* Adjusted to perfectly align with "Hi" */
+            margin-left: 87px; /* Adjusted to perfectly align with "Hi" */
             display: flex;
             align-items: baseline; /* Aligns the text and dynamic part */
             gap: 8px; /* Space between static and dynamic text */
@@ -47,7 +47,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 25px;
             font-weight: 300;
-            color: #ffffff; /* #aaaaaa Light gray */
+            color: #dddddd; /* #aaaaaa Light gray */
         }
 
         .dynamic-container {
@@ -93,9 +93,9 @@
             let currentIndex = 0;
             let charIndex = 0;
             const dynamicTextElement = document.getElementById('dynamic-text');
-            const typingSpeed = 100; // Typing speed in ms
-            const eraseSpeed = 50;   // Erasing speed in ms
-            const pauseTime = 1500;  // Pause time at full text
+            const typingSpeed = 80; // Typing speed in ms
+            const eraseSpeed = 18;   // Erasing speed in ms
+            const pauseTime = 1000;  // Pause time at full text
 
             function typeText() {
                 if (charIndex < texts[currentIndex].length) {
